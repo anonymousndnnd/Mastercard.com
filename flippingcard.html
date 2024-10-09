@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flipping card design</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:"Poppins",sans-serif;
+      }
+      section{
+        position:relative;
+        min-height:100vh;
+        width:100%;
+        background:#121321;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      section::before{
+        content:"";
+        position:absolute;
+        height:240px;
+        width:240px;
+        background:linear-gradient(90deg,#9c27b0,#f3f5f5);
+        border-radius:120px;
+        transform:translate(-150px,-100px);
+      }
+      section::after{
+        content:"";
+        position:absolute;
+        height:240px;
+        width:240px;
+        background:linear-gradient(90deg,#9c27b0,#f3f5f5);
+        border-radius:120px;
+        transform:translate(150px,100px);
+        perspective: 1000px;
+      }
+      .container{
+        position:relative;
+        height:225px;
+        width:375px;
+        z-index:100;
+        transition:0.6s;
+        transform-style: preserve-3d;
+      }
+      .container:hover{
+        transform: rotateY(180deg);
+      }
+      .container .card{
+        width:100%;
+        height:100%;
+        background:rgba(255,255,255,0.1);
+        box-shadow:0 25px 45px rgba(0,0,0,0.25);
+        border-radius:25px;
+        backdrop-filter:blur(25px);
+        position:relative;
+        position:absolute;
+        padding:25px;
+        backface-visibility:hidden;
+      }
+      
+      header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        margin-bottom:40px;
+      }
+      header .logo{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+      }
+      .logo img{
+        width:50px;
+      }
+      h5{
+        font-size:16px;
+        font-weight:400px;
+        color:white;
+        margin-left:10px;
+      }
+      .chip{
+        width:48px;
+      }
+      
+      .card-details .cardnumber{
+        display:flex;
+        flex-direction:column
+      }
+      .card-details .cardnumber .a{
+        color:white;
+        font-weight:700;
+        font-size:12px;
+      }
+      .card-details .cardnumber .b{
+        margin:0;
+        font-size:18px;
+        margin-top:3px;
+        letter-spacing:1px;
+      }
+      .otherdetails{
+        display:flex;
+        justify-content:space-between;
+        align-items: bottom;
+        margin-top:5px;
+      }
+      .otherdetails .name{
+        margin:0;
+        margin-top:15px;
+      }
+      .otherdetails .expiry{
+        display:flex;
+        flex-direction:column;
+        
+      }
+      .otherdetails .expiry .validity{
+        color:white;
+      }
+      .otherdetails .expiry .date{
+        font-size:18px;
+        margin:0;
+      }
+      .back-face{
+        border:none;
+        transform: rotateY(180deg);
+      }
+      .back-face .grievances{
+        margin-top:2px;
+        color:white;
+        font-size:8px;
+        margin-top:-5px;
+        margin-bottom:0px;
+      }
+      .back-face .blackstrip{
+        position:absolute;
+        background:black;
+        height:45px;
+        width:100%;
+        left:0px;
+        right:0;
+        margin-top:10px;
+      }
+      .back-face .cvv{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        margin-top:80px;
+        height:40px;
+        border-radius:6px;
+        background:repeating-linear-gradient(
+          #fff,
+          #fff 3px,
+          #efefef 0px,
+          #efefef 9px
+        );
+        width:85%;
+      }
+      .cvv i{
+        color:black;
+        font-size:12px;
+        border-radius:4px;
+        background-color: white;
+        margin-right:-30px;
+        padding:4px 6px;
+        z-index:-1;
+      }
+      .back-face h5{
+        font-size:8px;
+        margin-top:15px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="card front-face">
+            <header>
+              <span class="logo">
+                <img src="logo.png" alt="">
+                <h5>Master Card</h5>
+              </span>
+              <img src="chip.png" alt="" class="chip">
+            </header>
+            <div class="card-details">
+              <div class="cardnumber">
+                <h6 class="a">Card Number</h6>
+                <h5 class="b">8050 4030 3020 6080</h5>
+              </div>
+              <div class="otherdetails">
+                <h5 class="name">Saurav Kumar</h5>
+                <div class="expiry">
+                  <h6 class="validity">Valid Thru</h6>
+                  <h5 class="date">05/28</h5>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="card back-face">
+          <div class="back-face"></div>
+            <h6 class="grievances">For customer service call +977 4343 3433 or email at
+              mastercard@gmail.com
+            </h6>  
+            <span class="blackstrip"></span>
+            <div class="cvv"><i>005</i></div>
+            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto perferendis, 
+              nemo ex ipsum nostrum error? Iste illum dolorum esse debitis, fuga dignissimos est aut, accusantium tempore nesciunt eos atque! Ex.</h5>
+          </div>
+        </div>  
+        
+        
+          
+        
+      </div>
+    </section>
+  </body>
+</html>
